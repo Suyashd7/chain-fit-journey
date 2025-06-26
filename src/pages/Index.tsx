@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -9,6 +8,8 @@ import { DietLogger } from "@/components/DietLogger";
 import { ProgressTracker } from "@/components/ProgressTracker";
 import { HistoryViewer } from "@/components/HistoryViewer";
 import { Dumbbell, Shield, Trophy, Calendar } from "lucide-react";
+import { WorkoutSplit } from "@/components/WorkoutSplit";
+import { BodyweightLogger } from "@/components/BodyweightLogger";
 
 const Index = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -95,10 +96,11 @@ const Index = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="log" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 bg-white/10 backdrop-blur-sm">
+          <TabsList className="grid w-full grid-cols-4 bg-white/10 backdrop-blur-sm">
             <TabsTrigger value="log" className="data-[state=active]:bg-purple-500">Log Activity</TabsTrigger>
             <TabsTrigger value="progress" className="data-[state=active]:bg-purple-500">Progress</TabsTrigger>
             <TabsTrigger value="history" className="data-[state=active]:bg-purple-500">History</TabsTrigger>
+            <TabsTrigger value="split" className="data-[state=active]:bg-purple-500">Split & Bodyweight</TabsTrigger>
           </TabsList>
 
           <TabsContent value="log" className="space-y-6">
@@ -114,6 +116,13 @@ const Index = () => {
 
           <TabsContent value="history">
             <HistoryViewer />
+          </TabsContent>
+
+          <TabsContent value="split" className="space-y-6">
+            <div className="grid lg:grid-cols-2 gap-6">
+              <WorkoutSplit />
+              <BodyweightLogger />
+            </div>
           </TabsContent>
         </Tabs>
       </div>
