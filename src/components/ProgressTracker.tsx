@@ -17,51 +17,62 @@ export const ProgressTracker = ({ currentStreak, totalDays, detailed = false }: 
 
   if (!detailed) {
     return (
-      <div className="grid md:grid-cols-4 gap-4 mb-8">
-        <Card className="bg-white/5 backdrop-blur-sm border-purple-500/20">
-          <CardContent className="pt-6">
+      <div className="grid md:grid-cols-4 gap-6">
+        <Card className="border-0 shadow-sm">
+          <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-300">Current Streak</p>
-                <p className="text-2xl font-bold text-white">{currentStreak} days</p>
+                <p className="text-sm text-gray-500 mb-1">Current Streak</p>
+                <p className="text-2xl font-light text-gray-900">{currentStreak}</p>
+                <p className="text-xs text-gray-500">days</p>
               </div>
-              <Clock className="w-8 h-8 text-purple-400" />
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-5 h-5 text-gray-600" />
+              </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="bg-white/5 backdrop-blur-sm border-green-500/20">
-          <CardContent className="pt-6">
+        <Card className="border-0 shadow-sm">
+          <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-300">Total Days</p>
-                <p className="text-2xl font-bold text-white">{totalDays} / {targetDays}</p>
+                <p className="text-sm text-gray-500 mb-1">Total Days</p>
+                <p className="text-2xl font-light text-gray-900">{totalDays}</p>
+                <p className="text-xs text-gray-500">of {targetDays}</p>
               </div>
-              <Calendar className="w-8 h-8 text-green-400" />
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <Calendar className="w-5 h-5 text-gray-600" />
+              </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="bg-white/5 backdrop-blur-sm border-yellow-500/20">
-          <CardContent className="pt-6">
+        <Card className="border-0 shadow-sm">
+          <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-300">Progress</p>
-                <p className="text-2xl font-bold text-white">{Math.round(progressPercentage)}%</p>
+                <p className="text-sm text-gray-500 mb-1">Progress</p>
+                <p className="text-2xl font-light text-gray-900">{Math.round(progressPercentage)}</p>
+                <p className="text-xs text-gray-500">percent</p>
               </div>
-              <Trophy className="w-8 h-8 text-yellow-400" />
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <Trophy className="w-5 h-5 text-gray-600" />
+              </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="bg-white/5 backdrop-blur-sm border-blue-500/20">
-          <CardContent className="pt-6">
+        <Card className="border-0 shadow-sm">
+          <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-300">NFT Status</p>
-                <p className="text-lg font-bold text-white">{canMintNFT ? "Ready!" : "Locked"}</p>
+                <p className="text-sm text-gray-500 mb-1">NFT Status</p>
+                <p className="text-lg font-medium text-gray-900">{canMintNFT ? "Ready" : "Locked"}</p>
               </div>
-              <CheckCircle className={`w-8 h-8 ${canMintNFT ? 'text-green-400' : 'text-gray-400'}`} />
+              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                <CheckCircle className={`w-5 h-5 ${canMintNFT ? 'text-green-600' : 'text-gray-400'}`} />
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -70,54 +81,52 @@ export const ProgressTracker = ({ currentStreak, totalDays, detailed = false }: 
   }
 
   return (
-    <div className="space-y-6">
-      <Card className="bg-white/5 backdrop-blur-sm border-purple-500/20">
-        <CardHeader>
-          <CardTitle className="text-white">30-Day Challenge Progress</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div>
-            <div className="flex justify-between text-sm text-gray-300 mb-2">
-              <span>Days Completed</span>
-              <span>{totalDays} / {targetDays}</span>
-            </div>
-            <Progress value={progressPercentage} className="h-3" />
+    <Card className="border-0 shadow-sm">
+      <CardHeader>
+        <CardTitle className="text-xl font-medium text-gray-900">30-Day Challenge Progress</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-8">
+        <div>
+          <div className="flex justify-between text-sm text-gray-600 mb-3">
+            <span>Days Completed</span>
+            <span>{totalDays} of {targetDays}</span>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">Streak Information</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Current Streak:</span>
-                  <span className="text-white font-semibold">{currentStreak} days</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Days Until NFT:</span>
-                  <span className="text-white font-semibold">{Math.max(0, targetDays - currentStreak)} days</span>
-                </div>
+          <Progress value={progressPercentage} className="h-2" />
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <h3 className="font-medium text-gray-900">Streak Information</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Current Streak:</span>
+                <span className="font-medium text-gray-900">{currentStreak} days</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Days Until NFT:</span>
+                <span className="font-medium text-gray-900">{Math.max(0, targetDays - currentStreak)} days</span>
               </div>
             </div>
-            
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">NFT Reward</h3>
-              {canMintNFT ? (
-                <div className="space-y-2">
-                  <p className="text-green-400">🎉 Congratulations! You've completed the 30-day challenge!</p>
-                  <Button className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600">
-                    <Trophy className="w-4 h-4 mr-2" />
-                    Mint Consistency Champion NFT
-                  </Button>
-                </div>
-              ) : (
-                <p className="text-gray-300">
-                  Complete 30 consecutive days of logging to unlock your "Consistency Champion" NFT.
-                </p>
-              )}
-            </div>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+          
+          <div className="space-y-4">
+            <h3 className="font-medium text-gray-900">Achievement NFT</h3>
+            {canMintNFT ? (
+              <div className="space-y-3">
+                <p className="text-green-600 text-sm">Congratulations! You've completed the 30-day challenge.</p>
+                <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white">
+                  <Trophy className="w-4 h-4 mr-2" />
+                  Mint Achievement NFT
+                </Button>
+              </div>
+            ) : (
+              <p className="text-gray-600 text-sm">
+                Complete 30 consecutive days of logging to unlock your achievement NFT.
+              </p>
+            )}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 };

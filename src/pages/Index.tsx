@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,7 +8,7 @@ import { WorkoutLogger } from "@/components/WorkoutLogger";
 import { DietLogger } from "@/components/DietLogger";
 import { ProgressTracker } from "@/components/ProgressTracker";
 import { HistoryViewer } from "@/components/HistoryViewer";
-import { Dumbbell, Shield, Trophy, Calendar } from "lucide-react";
+import { Activity, Database, Award, Calendar } from "lucide-react";
 import { WorkoutSplit } from "@/components/WorkoutSplit";
 import { BodyweightLogger } from "@/components/BodyweightLogger";
 
@@ -18,58 +19,64 @@ const Index = () => {
 
   const handleWalletConnect = () => {
     setIsConnected(true);
-    // This will be connected to actual Web3 wallet later
   };
 
   if (!isConnected) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        {/* Hero Section */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8">
-              <Shield className="w-5 h-5 text-purple-400" />
-              <span className="text-purple-300 font-medium">Blockchain-Powered Fitness</span>
+      <div className="min-h-screen bg-white">
+        <div className="container mx-auto px-6 py-16">
+          {/* Hero Section */}
+          <div className="max-w-4xl mx-auto text-center mb-20">
+            <div className="inline-flex items-center gap-3 bg-gray-50 rounded-full px-6 py-3 mb-8">
+              <Database className="w-5 h-5 text-gray-600" />
+              <span className="text-gray-700 font-medium">Blockchain-Powered Fitness</span>
             </div>
             
-            <h1 className="text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent mb-6">
+            <h1 className="text-6xl font-light text-gray-900 mb-6 tracking-tight">
               FitLogChain
             </h1>
             
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Track your fitness journey on the blockchain. 30 days of consistency rewards you with a unique NFT that proves your dedication.
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Track your fitness journey with permanent, verifiable records. 
+              Complete 30 days of consistency to earn your achievement NFT.
             </p>
             
             <WalletConnector onConnect={handleWalletConnect} />
           </div>
 
           {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="bg-white/5 backdrop-blur-sm border-purple-500/20 p-6 hover:bg-white/10 transition-all duration-300">
-              <Dumbbell className="w-12 h-12 text-purple-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Workout Tracking</h3>
-              <p className="text-gray-300">Log exercises, sets, reps, and weights. Every workout is permanently recorded on-chain.</p>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="p-8 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <Activity className="w-8 h-8 text-gray-900 mb-6" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Workout Tracking</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Log exercises, sets, and reps with immutable blockchain records.
+              </p>
             </Card>
             
-            <Card className="bg-white/5 backdrop-blur-sm border-purple-500/20 p-6 hover:bg-white/10 transition-all duration-300">
-              <Calendar className="w-12 h-12 text-green-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Diet Logging</h3>
-              <p className="text-gray-300">Track meals, calories, and timing. Build healthy eating habits with blockchain accountability.</p>
+            <Card className="p-8 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <Calendar className="w-8 h-8 text-gray-900 mb-6" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Diet Logging</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Track meals and nutrition with timestamped, verified entries.
+              </p>
             </Card>
             
-            <Card className="bg-white/5 backdrop-blur-sm border-purple-500/20 p-6 hover:bg-white/10 transition-all duration-300">
-              <Trophy className="w-12 h-12 text-yellow-400 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">NFT Rewards</h3>
-              <p className="text-gray-300">Complete 30 consecutive days and mint your "Consistency Champion" NFT as proof of dedication.</p>
+            <Card className="p-8 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <Award className="w-8 h-8 text-gray-900 mb-6" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Achievement NFTs</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Earn verifiable proof of your 30-day consistency commitment.
+              </p>
             </Card>
           </div>
 
           {/* Challenge Info */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">The 30-Day Challenge</h2>
-            <p className="text-gray-300 mb-8 max-w-3xl mx-auto">
-              Commit to logging your workouts and meals every day for 30 days. 
-              Miss a day? Your streak resets. Complete the challenge and earn a unique NFT that represents your commitment to fitness.
+          <div className="text-center mt-20 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-light text-gray-900 mb-6">The 30-Day Challenge</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Maintain daily logging for 30 consecutive days. Every entry is permanently recorded 
+              on the blockchain, creating an immutable record of your commitment to health and fitness.
             </p>
           </div>
         </div>
@@ -78,33 +85,43 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-6 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-            FitLogChain Dashboard
+        <div className="flex justify-between items-center mb-12">
+          <h1 className="text-2xl font-light text-gray-900">
+            FitLogChain
           </h1>
-          <div className="text-white">
-            <span className="text-sm text-gray-300">Connected: </span>
-            <span className="text-green-400 font-mono">0x1234...5678</span>
+          <div className="text-sm text-gray-600">
+            <span className="text-gray-500">Connected: </span>
+            <span className="font-mono text-gray-900">0x1234...5678</span>
           </div>
         </div>
 
         {/* Progress Overview */}
-        <ProgressTracker currentStreak={currentStreak} totalDays={totalDays} />
+        <div className="mb-12">
+          <ProgressTracker currentStreak={currentStreak} totalDays={totalDays} />
+        </div>
 
-        {/* Main Content Tabs */}
-        <Tabs defaultValue="log" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 bg-white/10 backdrop-blur-sm">
-            <TabsTrigger value="log" className="data-[state=active]:bg-purple-500">Log Activity</TabsTrigger>
-            <TabsTrigger value="progress" className="data-[state=active]:bg-purple-500">Progress</TabsTrigger>
-            <TabsTrigger value="history" className="data-[state=active]:bg-purple-500">History</TabsTrigger>
-            <TabsTrigger value="split" className="data-[state=active]:bg-purple-500">Split & Bodyweight</TabsTrigger>
+        {/* Main Content */}
+        <Tabs defaultValue="log" className="space-y-8">
+          <TabsList className="grid w-full grid-cols-4 bg-white border shadow-sm">
+            <TabsTrigger value="log" className="data-[state=active]:bg-gray-900 data-[state=active]:text-white">
+              Log Activity
+            </TabsTrigger>
+            <TabsTrigger value="progress" className="data-[state=active]:bg-gray-900 data-[state=active]:text-white">
+              Progress
+            </TabsTrigger>
+            <TabsTrigger value="history" className="data-[state=active]:bg-gray-900 data-[state=active]:text-white">
+              History
+            </TabsTrigger>
+            <TabsTrigger value="profile" className="data-[state=active]:bg-gray-900 data-[state=active]:text-white">
+              Profile
+            </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="log" className="space-y-6">
-            <div className="grid lg:grid-cols-2 gap-6">
+          <TabsContent value="log" className="space-y-8">
+            <div className="grid lg:grid-cols-2 gap-8">
               <WorkoutLogger onLog={() => setCurrentStreak(prev => prev + 1)} />
               <DietLogger onLog={() => setTotalDays(prev => prev + 1)} />
             </div>
@@ -118,8 +135,8 @@ const Index = () => {
             <HistoryViewer />
           </TabsContent>
 
-          <TabsContent value="split" className="space-y-6">
-            <div className="grid lg:grid-cols-2 gap-6">
+          <TabsContent value="profile" className="space-y-8">
+            <div className="grid lg:grid-cols-2 gap-8">
               <WorkoutSplit />
               <BodyweightLogger />
             </div>

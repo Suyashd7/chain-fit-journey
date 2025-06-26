@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
@@ -22,41 +23,45 @@ export const WorkoutSplit = () => {
   };
 
   return (
-    <Card className="bg-white/5 backdrop-blur-sm border-blue-500/20">
-      <CardHeader>
-        <CardTitle className="text-white">My Workout Split</CardTitle>
+    <Card className="border-0 shadow-sm">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-lg font-medium text-gray-900">Workout Split</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          <Label htmlFor="splitType" className="text-gray-300">Select Split</Label>
-          <Select value={splitType} onValueChange={setSplitType}>
-            <SelectTrigger className="bg-white/10 border-white/20 text-white">
-              <SelectValue placeholder="Choose split type" />
-            </SelectTrigger>
-            <SelectContent>
-              {SPLIT_OPTIONS.map(opt => (
-                <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        <div className="space-y-6">
+          <div>
+            <Label htmlFor="splitType" className="text-sm font-medium text-gray-700">Select Split</Label>
+            <Select value={splitType} onValueChange={setSplitType}>
+              <SelectTrigger className="mt-1 border-gray-200 focus:border-gray-900 focus:ring-gray-900">
+                <SelectValue placeholder="Choose split type" />
+              </SelectTrigger>
+              <SelectContent>
+                {SPLIT_OPTIONS.map(opt => (
+                  <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
           {splitType === "custom" && (
             <div>
-              <Label htmlFor="customDays" className="text-gray-300">Custom Days (comma separated)</Label>
+              <Label htmlFor="customDays" className="text-sm font-medium text-gray-700">Custom Days</Label>
               <Input
                 id="customDays"
                 value={customDays}
                 onChange={e => setCustomDays(e.target.value)}
                 placeholder="e.g., Chest, Back, Legs, Arms"
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="mt-1 border-gray-200 focus:border-gray-900 focus:ring-gray-900"
               />
             </div>
           )}
-          <Button onClick={handleSave} className="bg-gradient-to-r from-blue-500 to-purple-500 w-full">Save Split</Button>
+          <Button onClick={handleSave} className="w-full bg-gray-900 hover:bg-gray-800 text-white">
+            Save Split
+          </Button>
           {savedSplit && (
-            <div className="mt-4 text-white">
-              <div className="font-semibold">Current Split:</div>
-              <div>{SPLIT_OPTIONS.find(opt => opt.value === savedSplit.type)?.label || "Custom"}</div>
-              {savedSplit.days && <div>Days: {savedSplit.days}</div>}
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <div className="font-medium text-gray-900 mb-1">Current Split:</div>
+              <div className="text-gray-700">{SPLIT_OPTIONS.find(opt => opt.value === savedSplit.type)?.label || "Custom"}</div>
+              {savedSplit.days && <div className="text-gray-600 text-sm">Days: {savedSplit.days}</div>}
             </div>
           )}
         </div>
@@ -65,4 +70,4 @@ export const WorkoutSplit = () => {
   );
 }
 
-export default WorkoutSplit; 
+export default WorkoutSplit;

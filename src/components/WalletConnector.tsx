@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Shield } from "lucide-react";
+import { Wallet } from "lucide-react";
 
 interface WalletConnectorProps {
   onConnect: () => void;
@@ -9,26 +9,27 @@ interface WalletConnectorProps {
 
 export const WalletConnector = ({ onConnect }: WalletConnectorProps) => {
   const handleConnect = () => {
-    // This would integrate with MetaMask/Web3 wallet
     onConnect();
   };
 
   return (
-    <Card className="bg-white/5 backdrop-blur-sm border-purple-500/20 p-8 max-w-md mx-auto">
+    <Card className="p-8 max-w-md mx-auto border-0 shadow-lg">
       <div className="text-center">
-        <Shield className="w-16 h-16 text-purple-400 mx-auto mb-4" />
-        <h3 className="text-2xl font-semibold text-white mb-4">Connect Your Wallet</h3>
-        <p className="text-gray-300 mb-6">
+        <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <Wallet className="w-8 h-8 text-gray-700" />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">Connect Wallet</h3>
+        <p className="text-gray-600 mb-8 leading-relaxed">
           Connect your Web3 wallet to start tracking your fitness journey on the blockchain.
         </p>
         <Button 
           onClick={handleConnect}
-          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+          className="w-full bg-gray-900 hover:bg-gray-800 text-white h-12"
         >
           Connect MetaMask
         </Button>
-        <p className="text-xs text-gray-400 mt-4">
-          Don't have MetaMask? <a href="#" className="text-purple-400 hover:underline">Get it here</a>
+        <p className="text-xs text-gray-500 mt-4">
+          Don't have MetaMask? <a href="#" className="text-gray-900 hover:underline">Get it here</a>
         </p>
       </div>
     </Card>

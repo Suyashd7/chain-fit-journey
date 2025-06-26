@@ -32,15 +32,13 @@ export const DietLogger = ({ onLog }: DietLoggerProps) => {
       return;
     }
 
-    // This would submit to blockchain
     console.log("Logging meal:", { mealType, foods, calories, timing, timestamp: new Date() });
     
     toast({
-      title: "Meal Logged!",
-      description: `${mealType} has been recorded on the blockchain.`,
+      title: "Meal Logged",
+      description: `${mealType} has been recorded successfully.`,
     });
 
-    // Reset form
     setMealType("");
     setFoods("");
     setCalories("");
@@ -50,19 +48,21 @@ export const DietLogger = ({ onLog }: DietLoggerProps) => {
   };
 
   return (
-    <Card className="bg-white/5 backdrop-blur-sm border-green-500/20">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-white">
-          <Calendar className="w-5 h-5 text-green-400" />
+    <Card className="border-0 shadow-sm">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-3 text-lg font-medium text-gray-900">
+          <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+            <Calendar className="w-4 h-4 text-gray-700" />
+          </div>
           Log Meal
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label htmlFor="mealType" className="text-gray-300">Meal Type *</Label>
+            <Label htmlFor="mealType" className="text-sm font-medium text-gray-700">Meal Type *</Label>
             <Select value={mealType} onValueChange={setMealType}>
-              <SelectTrigger className="bg-white/10 border-white/20 text-white">
+              <SelectTrigger className="mt-1 border-gray-200 focus:border-gray-900 focus:ring-gray-900">
                 <SelectValue placeholder="Select meal type" />
               </SelectTrigger>
               <SelectContent>
@@ -77,46 +77,46 @@ export const DietLogger = ({ onLog }: DietLoggerProps) => {
           </div>
           
           <div>
-            <Label htmlFor="foods" className="text-gray-300">Foods Consumed *</Label>
+            <Label htmlFor="foods" className="text-sm font-medium text-gray-700">Foods Consumed *</Label>
             <Textarea
               id="foods"
               value={foods}
               onChange={(e) => setFoods(e.target.value)}
               placeholder="e.g., Grilled chicken, brown rice, broccoli"
-              className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+              className="mt-1 border-gray-200 focus:border-gray-900 focus:ring-gray-900"
             />
           </div>
           
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="calories" className="text-gray-300">Calories (optional)</Label>
+              <Label htmlFor="calories" className="text-sm font-medium text-gray-700">Calories</Label>
               <Input
                 id="calories"
                 type="number"
                 value={calories}
                 onChange={(e) => setCalories(e.target.value)}
                 placeholder="450"
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="mt-1 border-gray-200 focus:border-gray-900 focus:ring-gray-900"
               />
             </div>
             <div>
-              <Label htmlFor="timing" className="text-gray-300">Time</Label>
+              <Label htmlFor="timing" className="text-sm font-medium text-gray-700">Time</Label>
               <Input
                 id="timing"
                 type="time"
                 value={timing}
                 onChange={(e) => setTiming(e.target.value)}
-                className="bg-white/10 border-white/20 text-white"
+                className="mt-1 border-gray-200 focus:border-gray-900 focus:ring-gray-900"
               />
             </div>
           </div>
           
           <Button 
             type="submit" 
-            className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+            className="w-full bg-gray-900 hover:bg-gray-800 text-white h-11"
           >
             <Plus className="w-4 h-4 mr-2" />
-            Log Meal to Blockchain
+            Log Meal
           </Button>
         </form>
       </CardContent>
