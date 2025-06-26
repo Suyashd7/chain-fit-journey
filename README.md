@@ -1,73 +1,60 @@
-# Welcome to your Lovable project
+# 🏋️‍♂️ FitLogChain – 30-Day Blockchain Fitness Tracker
 
-## Project info
+**FitLogChain** is a decentralized application (DApp) designed to help users stay consistent with their fitness journey by tracking their **daily workout** and **diet routines** on the blockchain. By logging entries for 30 days, users can build discipline and earn a **Consistency NFT** as on-chain proof of their commitment.
 
-**URL**: https://lovable.dev/projects/cf4778a8-3da5-47d3-9ed9-589dd9b8a4e3
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+### ✅ Workout Logging
+- Log exercises with sets, reps, weights, and notes
+- One workout entry allowed per wallet per day
+- Stored immutably on the blockchain
 
-**Use Lovable**
+### 🥗 Diet Tracking
+- Record your meals (Breakfast, Lunch, Dinner, Snacks)
+- Optionally include calories or macros
+- Encourages healthy, regular eating
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cf4778a8-3da5-47d3-9ed9-589dd9b8a4e3) and start prompting.
+### 📆 Consistency Tracker
+- Visual 30-day tracker showing daily log status
+- Displays current streak and missed days
+- Motivates daily engagement
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🏆 NFT Reward System
+- After completing 30 consecutive days of logs
+- Mint a **“Consistency Champion” NFT**
+- Includes user wallet, log stats, and completion date
 
-**Use your preferred IDE**
+### 🔒 Wallet-based Access
+- Only wallet owner can add/view/edit their logs
+- Ensures privacy and personal ownership of data
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🧠 (Optional) AI Insights
+- Analyze 30-day workout trends using OpenAI
+- Get summaries like:
+  - “You trained back 6 times”
+  - “Missed 5 meals on average per week”
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+| Layer          | Technology       |
+|----------------|------------------|
+| Smart Contract | Solidity + Hardhat |
+| Frontend       | React + Ethers.js |
+| Wallet         | MetaMask / MetaMask Flask |
+| Storage        | Ethereum + optional IPFS |
+| AI (Optional)  | OpenAI API (Node/Express backend) |
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🔧 Setup Instructions
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/cf4778a8-3da5-47d3-9ed9-589dd9b8a4e3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/yourusername/fitlogchain.git
+   cd fitlogchain
