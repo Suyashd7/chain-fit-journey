@@ -60,4 +60,4 @@
    cd fitlogchain
 
 
-skillchain-verify-2wzvdo
+skillchain-verify-ebn8cu
