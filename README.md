@@ -60,4 +60,4 @@
    cd fitlogchain
 
 
-skillchain-verify-ebn8cu
+skillchain-verify-8aqen2
