@@ -58,3 +58,6 @@
    ```bash
    git clone https://github.com/yourusername/fitlogchain.git
    cd fitlogchain
+
+
+skillchain-verify-rg11m6
