@@ -59,5 +59,4 @@
    git clone https://github.com/yourusername/fitlogchain.git
    cd fitlogchain
 
-
-skillchain-verify-2sq7qj
+skillchain-verify-3ru1rr
