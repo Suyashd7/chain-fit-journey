@@ -60,4 +60,4 @@
    cd fitlogchain
 
 
-skillchain-verify-rg11m6
+skillchain-verify-2wzvdo
